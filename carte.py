@@ -2,6 +2,8 @@
 
 import os
 
+import sys
+
 """Ce module contient la classe Carte."""
 
 class Cartes:
@@ -20,7 +22,19 @@ class Carte_en_cours():
 	def __init__(self, _plateau_de_jeu):
 
 		self._plateau_de_jeu = _plateau_de_jeu
+
 		self.victoire = False
+
+		self._plateau_vierge = _plateau_de_jeu
+
+		i = 0
+		while i < len(self._plateau_vierge) :
+			i += 1
+			try :
+				if self._plateau_vierge[i] == str('X'):
+					self._plateau_vierge = self._plateau_vierge[:i] + " " + self._plateau_vierge[(i + 1):]
+			except IndexError:
+					pass
 
 
 	def __repr__(self):
@@ -33,8 +47,6 @@ class Carte_en_cours():
 
 		return __repr__(self)
 
-
-		
 
 	def deplacement_droite(self, nombre):
 
@@ -265,14 +277,28 @@ class Carte_en_cours():
 			elif lettre == "E":
 				self.deplacement_droite(nombre)
 			elif lettre == "Q":
-				print(self.victoire)
-				input("Quit")
+				input("\nAurevoir grand fou !")
+				self.sauvegarde_de_la_partie()
+				sys.exit()
 			else :
 				input("Je suis désolé, je n'ai pas compris votre demande.")
 
+
+			i = 0
+			while i < len(self._plateau_vierge) :
+				i += 1
+				try :
+					if self._plateau_de_jeu[i] == str('X'):
+						self._plateau_de_jeu = self._plateau_vierge[:i] + "X" + self._plateau_vierge[(i + 1):]
+				except IndexError:
+						pass			
+
 			if self.victoire == True :
 				jeu_en_cours = False
-				
+	
+	def sauvegarde_de_la_partie() :
+
+		pass
 
 
 
