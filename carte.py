@@ -16,9 +16,11 @@ class Cartes:
 
 class Carte_en_cours():
 
+
 	def __init__(self, _plateau_de_jeu):
 
 		self._plateau_de_jeu = _plateau_de_jeu
+		self.victoire = False
 
 
 	def __repr__(self):
@@ -46,10 +48,17 @@ class Carte_en_cours():
 				i += 1
 				try:
 					if self._plateau_de_jeu[i] == str('X'):
-						if self._plateau_de_jeu[i + 1] == str('O'):
+						if self._plateau_de_jeu[i + 1] == str('U'):
+							pas += 1
+							nombre = 0
+							self.victoire = True
+							continue
+
+						elif self._plateau_de_jeu[i + 1] == str('O'):
 							print("On ne peut pas traverser les murs !")
 							nombre = 0
 							continue
+
 						else:
 							self._plateau_de_jeu = self._plateau_de_jeu[:i] + " " + self._plateau_de_jeu[(i + 1):]
 							self._plateau_de_jeu = self._plateau_de_jeu[:(i + 1)] + "X" + self._plateau_de_jeu[(i + 2):]
@@ -60,6 +69,8 @@ class Carte_en_cours():
 					pass
 
 		input("Vous vous êtes déplacez de {} pas vers l'Est.".format(pas))
+		if self.victoire == True :
+			input("\nVous venez de vous échapper du labyrinthe !!!")
 
 	def deplacement_gauche(self, nombre):
 
@@ -74,13 +85,17 @@ class Carte_en_cours():
 				try:
 					if self._plateau_de_jeu[i] == str('X'):
 						
-						#if self._plateau_de_jeu[i - 1] == str('U'):
-						#	print("Vous venez de vous échapper du labyrinthe !!!")
+						if self._plateau_de_jeu[i - 1] == str('U'):
+							pas += 1
+							nombre = 0
+							self.victoire = True
+							continue
 
-						if self._plateau_de_jeu[i - 1] == str('O'):
+						elif self._plateau_de_jeu[i - 1] == str('O'):
 							print("On ne peut pas traverser les murs !")
 							nombre = 0
 							continue
+
 						else:
 							self._plateau_de_jeu = self._plateau_de_jeu[:i] + " " + self._plateau_de_jeu[(i + 1):]
 							self._plateau_de_jeu = self._plateau_de_jeu[:(i - 1)] + "X" + self._plateau_de_jeu[i:]
@@ -91,6 +106,9 @@ class Carte_en_cours():
 					pass
 
 		input("Vous vous êtes déplacez de {} pas vers l'Ouest.".format(pas))
+		if self.victoire == True :
+			input("\nVous venez de vous échapper du labyrinthe !!!")
+
 
 	def largeur_plateau(self):
 
@@ -121,10 +139,18 @@ class Carte_en_cours():
 				i += 1
 				try:
 					if self._plateau_de_jeu[i] == str('X'):
-						if self._plateau_de_jeu[i + j + 1] == str('O'):
+
+						if self._plateau_de_jeu[i + j + 1] == str('U'):
+							pas += 1
+							nombre = 0
+							self.victoire = True
+							continue
+
+						elif self._plateau_de_jeu[i + j + 1] == str('O'):
 							print("On ne peut pas traverser les murs !")
 							nombre = 0
 							continue
+
 						else:
 							self._plateau_de_jeu = self._plateau_de_jeu[:i] + " " + self._plateau_de_jeu[(i + 1):]
 							self._plateau_de_jeu = self._plateau_de_jeu[:(i + j + 1)] + "X" + self._plateau_de_jeu[(i + j + 2):]
@@ -135,6 +161,8 @@ class Carte_en_cours():
 					pass
 
 		input("Vous vous êtes déplacez de {} pas vers le Sud.".format(pas))
+		if self.victoire == True :
+			input("\nVous venez de vous échapper du labyrinthe !!!")
 
 	def deplacement_haut(self, nombre):
 
@@ -152,10 +180,18 @@ class Carte_en_cours():
 				i += 1
 				try:
 					if self._plateau_de_jeu[i] == str('X'):
-						if self._plateau_de_jeu[i - j - 1] == str('O'):
+
+						if self._plateau_de_jeu[i - j - 1] == str('U'):
+							pas += 1
+							nombre = 0
+							self.victoire = True
+							continue
+
+						elif self._plateau_de_jeu[i - j - 1] == str('O'):
 							print("On ne peut pas traverser les murs !")
 							nombre = 0
 							continue
+
 						else:
 							self._plateau_de_jeu = self._plateau_de_jeu[:i] + " " + self._plateau_de_jeu[(i + 1):]
 							self._plateau_de_jeu = self._plateau_de_jeu[:(i - j - 1)] + "X" + self._plateau_de_jeu[(i - j):]
@@ -166,6 +202,8 @@ class Carte_en_cours():
 					pass
 
 		input("Vous vous êtes déplacez de {} pas vers le Nord.".format(pas))
+		if self.victoire == True :
+			input("\nVous venez de vous échapper du labyrinthe !!!")
 
 	def partie_en_cours(self):
 
@@ -184,8 +222,12 @@ class Carte_en_cours():
 			else :
 				commande = input("\n     Commande de jeu :\n\n     N              Nord\n  O     E        Ouest/Est\n     S              Sud\n\nQ: sauvegarder et Quitter\n\n Commande :  ")
 
-			if len(commande) > 2 or len(commande) <= 0 :
+			if len(commande) > 2 :
 				input("Veuillez saisir une lettre correspondant à une des actions.\nAvec, optionnellement un seul et unique chiffre.")
+				continue
+
+			if len(commande) <= 0 :
+				input("Vous n'avez rien saisit...")
 				continue
 
 			try :
@@ -223,9 +265,13 @@ class Carte_en_cours():
 			elif lettre == "E":
 				self.deplacement_droite(nombre)
 			elif lettre == "Q":
+				print(self.victoire)
 				input("Quit")
 			else :
 				input("Je suis désolé, je n'ai pas compris votre demande.")
+
+			if self.victoire == True :
+				jeu_en_cours = False
 				
 
 
