@@ -2,19 +2,25 @@
 
 """Ce fichier contient le code principal du jeu.
 
-Exécutez-le avec Python pour lancer le jeu.
+Exécutez-le avec Python pour lancer le jeu."""
 
-"""
+
+
+# différent import qui permette de clear la console, ou d'importer/exporter les sauvegardes
 
 import os
+import pickle
+
+# importation des classes du jeu
 
 from carte import *
 
-import pickle
 
 
 
-# On charge les cartes existantes
+
+# On charge toutes les différentes cartes existantes dans la variable Cartes()
+
 diffrentes_cartes_de_jeu = Cartes()
 
 for nom_fichier in os.listdir("cartes"):
@@ -24,14 +30,16 @@ for nom_fichier in os.listdir("cartes"):
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
             diffrentes_cartes_de_jeu._noms_des_cartes.append(nom_carte)
-            diffrentes_cartes_de_jeu._labyrinthes_des_cartes.append(contenu) # on l'imprime sous la forme print(diffrentes_cartes_de_jeu._labyrinthe[i])
+            diffrentes_cartes_de_jeu._labyrinthes_des_cartes.append(contenu) 
 
 
+# Initialisation de la boucle principale qui permet de lancer une partie, et de lancer automatiquement les suivantes            
             
-            # Création d'une carte, à compléter
 alors_on_joue = True
 
 while alors_on_joue == True :
+
+# Import de la sauvegarde si elle existe, tout en propsante au joueur de l'importe ou non
 
 	try :
 
@@ -51,8 +59,7 @@ while alors_on_joue == True :
 				input("Votre demande n'est pas valide.")
 				continue
 
-		
-
+# Si il n'existe pas de sauvegarde, ou que le joueur a choisite de pas la charger, on propose au joueur de choisir une nouvelle carte
 	except IOError:
 
 		os.system("cls")
@@ -69,16 +76,17 @@ while alors_on_joue == True :
 			try :
 				choix_du_labyrinthe = int(choix_du_labyrinthe)
 				if choix_du_labyrinthe <= 0 or choix_du_labyrinthe > len(diffrentes_cartes_de_jeu._noms_des_cartes):
-					print("Ce numéro de labyrtinhe n'existe pas !")
+					print("Ce numéro de labyrinthe n'existe pas !")
 					continue
 				i = False
 				input("Vous avez choisit le labyrinthe {}, qui se nomme \"{}\"".format(choix_du_labyrinthe, diffrentes_cartes_de_jeu._noms_des_cartes[choix_du_labyrinthe - 1]))
 			except ValueError:
 				print("On vous a demandé de choisir le numéro du labyrinthe.")
 
-
+		# Initialisation de la carte choisit dans la classe Carte_en_cours() pour lui donner toutes ses fonctionnalités
 		carte_du_jeu_en_cours = Carte_en_cours(diffrentes_cartes_de_jeu._labyrinthes_des_cartes[choix_du_labyrinthe - 1])
 
+	# On lance le jeu sur la carte qui a été choisit
 	carte_du_jeu_en_cours.partie_en_cours()
 
 
