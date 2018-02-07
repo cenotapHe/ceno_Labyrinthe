@@ -10,6 +10,8 @@ import os
 
 from carte import *
 
+import pickle
+
 
 
 # On charge les cartes existantes
@@ -35,32 +37,53 @@ alors_on_joue = True
 
 while alors_on_joue == True :
 
-	os.system("cls")
+	try :
+
+		os.system("cls")
+		with open('sauvegarde_laby', 'rb') as fichier:
+			mon_depickler = pickle.Unpickler(fichier)
+
+			choix_de_charger = input("Vous avez une sauvegarde en cours sur ce jeu.\nSouhaitez vous la chargez ? (Y/N) ")
+			choix_de_charger = str(choix_de_charger)
+			choix_de_charger = choix_de_charger.capitalize()
+			if choix_de_charger == "Y" :
+				carte_du_jeu_en_cours = mon_depickler.load()
+			elif choix_de_charger == "N" :
+				os.remove('sauvegarde_laby')
+				continue
+			else :
+				input("Votre demande n'est pas valide.")
+				continue
+
+		
+
+	except IOError:
+
+		os.system("cls")
 # On affiche les cartes existantes
-	print("Labyrinthes existants :\n")
-	for i, carte in enumerate(diffrentes_cartes_de_jeu._noms_des_cartes):
-	    print("  {} - {}".format(i + 1, carte))
+		print("Labyrinthes existants :\n")
+		for i, carte in enumerate(diffrentes_cartes_de_jeu._noms_des_cartes):
+		    print("  {} - {}".format(i + 1, carte))
 
 
 # On fait une boucle pour que le joueur choisise son labyrinthe
-	i = True
-	while i == True:
-		choix_du_labyrinthe = input("\nQuelle labyrinthe choisisez-vous ? ")
-		try :
-			choix_du_labyrinthe = int(choix_du_labyrinthe)
-			if choix_du_labyrinthe <= 0 or choix_du_labyrinthe > len(diffrentes_cartes_de_jeu._noms_des_cartes):
-				print("Ce numéro de labyrtinhe n'existe pas !")
-				continue
-			i = False
-			input("Vous avez choisit le labyrinthe {}, qui se nomme \"{}\"".format(choix_du_labyrinthe, diffrentes_cartes_de_jeu._noms_des_cartes[choix_du_labyrinthe - 1]))
-		except ValueError:
-			print("On vous a demandé de choisir le numéro du labyrinthe.")
+		i = True
+		while i == True:
+			choix_du_labyrinthe = input("\nQuelle labyrinthe choisisez-vous ? ")
+			try :
+				choix_du_labyrinthe = int(choix_du_labyrinthe)
+				if choix_du_labyrinthe <= 0 or choix_du_labyrinthe > len(diffrentes_cartes_de_jeu._noms_des_cartes):
+					print("Ce numéro de labyrtinhe n'existe pas !")
+					continue
+				i = False
+				input("Vous avez choisit le labyrinthe {}, qui se nomme \"{}\"".format(choix_du_labyrinthe, diffrentes_cartes_de_jeu._noms_des_cartes[choix_du_labyrinthe - 1]))
+			except ValueError:
+				print("On vous a demandé de choisir le numéro du labyrinthe.")
 
 
-	carte_du_jeu_en_cours = Carte_en_cours(diffrentes_cartes_de_jeu._labyrinthes_des_cartes[choix_du_labyrinthe - 1])
+		carte_du_jeu_en_cours = Carte_en_cours(diffrentes_cartes_de_jeu._labyrinthes_des_cartes[choix_du_labyrinthe - 1])
 
 	carte_du_jeu_en_cours.partie_en_cours()
-
 
 
 

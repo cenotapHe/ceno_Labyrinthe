@@ -4,6 +4,8 @@ import os
 
 import sys
 
+import pickle
+
 """Ce module contient la classe Carte."""
 
 class Cartes:
@@ -293,12 +295,22 @@ class Carte_en_cours():
 				except IndexError:
 						pass			
 
+			self.sauvegarde_de_la_partie()
+
 			if self.victoire == True :
 				jeu_en_cours = False
-	
-	def sauvegarde_de_la_partie() :
+				os.remove('sauvegarde_laby')
 
-		pass
+	
+	def sauvegarde_de_la_partie(self) :
+
+		with open('sauvegarde_laby', 'wb') as fichier:
+			mon_pickler = pickle.Pickler(fichier)
+			mon_pickler.dump(self)
+
+		#self.ma_sauvegarde = open("sauvegarde.txt", "w")
+		#self.ma_sauvegarde.write(self._plateau_de_jeu)
+		#self.ma_sauvegarde.close()
 
 
 
