@@ -23,10 +23,6 @@ for nom_fichier in os.listdir("cartes"):
         nom_carte = nom_fichier[:-4].capitalize()
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
-
-            #print(nom_carte)
-            #print(contenu)
-
             diffrentes_cartes_de_jeu._noms_des_cartes.append(nom_carte)
             diffrentes_cartes_de_jeu._labyrinthes_des_cartes.append(contenu) # on l'imprime sous la forme print(diffrentes_cartes_de_jeu._labyrinthe[i])
 
@@ -86,20 +82,3 @@ while alors_on_joue == True :
 	carte_du_jeu_en_cours.partie_en_cours()
 
 
-
-
-
-#carte_du_jeu_en_cours.deplacement_droite(4)
-
-
-#mouvement = input("On va allez à droite, alors appuyer sur D")
-#if mouvement == "d":
-
-	
-os.system("pause")
-
-
-
-# Si il y a une partie sauvegardée, on l'affiche, à compléter
-
-# ... Complétez le programme ...

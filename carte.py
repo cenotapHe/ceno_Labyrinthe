@@ -308,11 +308,4 @@ class Carte_en_cours():
 			mon_pickler = pickle.Pickler(fichier)
 			mon_pickler.dump(self)
 
-		#self.ma_sauvegarde = open("sauvegarde.txt", "w")
-		#self.ma_sauvegarde.write(self._plateau_de_jeu)
-		#self.ma_sauvegarde.close()
 
-
-
-#    def __repr__(self):
-#        return "<Carte {}>".format(self.nom)
