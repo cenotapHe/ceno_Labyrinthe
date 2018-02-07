@@ -4,6 +4,8 @@ Un jeu de labyrinthe en python
 
 Il s'agit d'un jeu de labyrinthe dans lequel vous controlez un robot.
 
+Utilisez roboc.py pour lancer le jeu.
+
 Vous avez plusieurs cartes à votre disposition pour jouer.
 
 A chaque fois que vous quittez la partie, celle ci est automatiquement sauvegardée. Le jeu vous propose à chaque connexion de reprendre la partie à l'endroit ou en étiez.
