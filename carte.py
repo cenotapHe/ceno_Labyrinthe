@@ -97,6 +97,10 @@ class Carte_en_cours():
 							chaine += "On ne peut pas traverser les murs !\n"
 							nombre = 0
 							continue
+						elif self._plateau_de_jeu[emplacement_future_case] == str('1') or self._plateau_de_jeu[emplacement_future_case] == str('2') or self._plateau_de_jeu[emplacement_future_case] == str('3') or self._plateau_de_jeu[emplacement_future_case] == str('4') or self._plateau_de_jeu[emplacement_future_case] == str('5') :
+							chaine += "On ne peut pas piétiner les autres robots comme celà ! Espèce de mal élevé !\n"
+							nombre = 0
+							continue
 						# déplace le robot vers la droite
 						else:
 							self._plateau_de_jeu = self._plateau_de_jeu[:i] + " " + self._plateau_de_jeu[(i + 1):]

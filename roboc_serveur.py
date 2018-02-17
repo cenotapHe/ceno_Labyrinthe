@@ -30,7 +30,7 @@ serveur_lance = True
 clients_connectes = []
 clients_joueurs = []
 
-bienvenue = b"Bienvenue sur le serveur.\nNous sommes en attente de joueur pour commencer la partie."
+bienvenue = b"Bienvenue sur le serveur.\nNous sommes en attente de joueur pour commencer la partie. (5joueurs MAXIMUM)"
 msg_recu = " "
 i = 1
 debut_de_partie = " "
@@ -72,6 +72,9 @@ while serveur_lance :
 				debut_de_partie = debut_de_partie.decode()
 
 				i += 1
+
+				if len(clients_joueurs) == 5:
+					debut_de_partie = 'C'
 
 			while debut_de_partie == "C":
 
