@@ -1,20 +1,20 @@
-OOOOOOOOOOOOOOOOOOOO
-OXO . O    O .     O
-O.O O O    O O     O
-O O O O    O O     O
-O.O O .    O O     O
-O O O OOOOOO O     O
-O O O        O     O
-O O OOOOOOOOOO     O
-O.O .        O     O
-O O O        O     O
-O O O        O     O
-O O.O        O     O
-O.O .        O     O
-O O O        O     O
-O O O        O     O
-O O O        O     O
-O O O        O     O
-O.O O        O     O
-O   O        O     U
-OOOOOOOOOOOOOOOOOOOO
+00000000000000000000
+0 O . O    O .     0
+0.O O O    O O     0
+0 O O O    O O     0
+0.O O .    O O     0
+0 O O OOOOOO O     0
+0 O O        O     0
+0 O OOOOOOOOOO     0
+0.O .        O     0
+0 O O        O     0
+0 O O        O     0
+0 O.O        O     0
+0.O .        O     0
+0 O O        O     0
+0 O O        O     0
+0 O O        O     0
+0 O O        O     0
+0.O O        O     0
+0   O        O     U
+00000000000000000000

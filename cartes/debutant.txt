@@ -1,11 +1,11 @@
-OOOOOOOOOO
-O O    O O
-O . OO   O
-O O O    O
-O OOOO O.O
-O O O    U
-O OOOOOO.O
-O O      O
-O O OOOOOO
-OX. O    O
-OOOOOOOOOO 
+0000000000
+0 O    O 0
+0 . OO   0
+0 O O    0
+0 OOOO O.0
+0 O O    U
+0 OOOOOO.0
+0 O      0
+0 O OOOOO0
+0 . O    0
+0000000000 

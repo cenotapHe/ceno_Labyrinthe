@@ -1,13 +1,13 @@
-OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-O O . O    O .  O  O       OOOOOOO
-O.O O O    O O  O  O  OOO    OOOOO
-O   O O    O O  O  O    OOO    OOO
-O.O O .    O O     O  OOO   OO   O
-O O O OOOOOO O  OOOO    . OOOO   O
-O O O        O  O  . O O O O O   O
-O O . OOOO O .  O  O O       O   O
-O.O O O    O O  O  O O O O.O.O   O
-O O O O OOOO O  O  O O   O O O   O
-O.O O .    O O  O  O O   O O O   O
-O   . OOOOOO O     O       O . X O
-OUOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+0000000000000000000000000000000000
+0 O . O    O .  O  O       OOOOOO0
+0.O O O    O O  O  O  OOO    OOOO0
+0   O O    O O  O  O    OOO    OO0
+0.O O .    O O     O  OOO   OO   0
+0 O O OOOOOO O  OOOO    . OOOO   0
+0 O O        O  O  . O O O O O   0
+0 O . OOOO O .  O  O O       O   0
+0.O O O    O O  O  O O O O.O.O   0
+0 O O O OOOO O  O  O O   O O O   0
+0.O O .    O O  O  O O   O O O   0
+0   . OOOOOO O     O       O .   0
+0U00000000000000000000000000000000
